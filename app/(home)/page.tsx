@@ -3,16 +3,6 @@ import Link from 'next/link'
 import Movie from '../../components/movie'
 import style from '../(home)/home.module.css'
 
-interface IMovieProps {
-	id: number
-	title: string
-	poster_path: string
-	overview: string
-	release_date: string
-	vote_average: number
-	genre_ids: number[]
-}
-
 export const metadata: Metadata = {
 	title: 'Home',
 }
@@ -28,11 +18,11 @@ export default async function Page() {
 	const movies = await getMovies()
 	return (
 		<div className={style.container}>
-			{movies.map((movie: IMovieProps) => {
+			{movies.map(movie => {
 				return (
 					<Movie
 						key={movie.id}
-						id={movie.id.toString()}
+						id={movie.id}
 						title={movie.title}
 						poster_path={movie.poster_path}
 					/>
