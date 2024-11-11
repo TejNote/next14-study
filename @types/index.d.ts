@@ -6,11 +6,11 @@ declare global {
 	}
 
 	interface SearchParams {
-		searchParams: { [key: string]: any }
+		searchParams: { [id: string]: any }
 	}
 
 	interface Params {
-		params: { [key: string]: any }
+		params: { [id: string]: any }
 	}
 }
 
