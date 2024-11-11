@@ -7,18 +7,18 @@ export const metadata: Metadata = {
 	title: 'Home',
 }
 
-// async function getMovies() {
-// 	// await new Promise(resolve => setTimeout(resolve, 5000))
-// 	const response = await fetch(process.env.NEXT_PUBLIC_API_URL)
-// 	const json = await response.json()
-// 	return json
-// }
+async function getMovies() {
+	// await new Promise(resolve => setTimeout(resolve, 5000))
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`)
+	const json = await response.json()
+	return json
+}
 
 export default async function Page() {
-	// const movies = await getMovies()
+	const movies = await getMovies()
 	return (
 		<div className={style.container}>
-			{/* {movies.map(movie => {
+			{movies.map(movie => {
 				return (
 					<Movie
 						key={movie.id}
@@ -27,7 +27,7 @@ export default async function Page() {
 						poster_path={movie.poster_path}
 					/>
 				)
-			})} */}
+			})}
 		</div>
 	)
 }
