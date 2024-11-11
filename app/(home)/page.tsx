@@ -18,7 +18,7 @@ export default async function Page() {
 	const movies = await getMovies()
 	return (
 		<div className={style.container}>
-			{movies.map(movie => {
+			{/* {movies.map(movie => {
 				return (
 					<Movie
 						key={movie.id}
@@ -27,7 +27,7 @@ export default async function Page() {
 						poster_path={movie.poster_path}
 					/>
 				)
-			})}
+			})} */}
 		</div>
 	)
 }
