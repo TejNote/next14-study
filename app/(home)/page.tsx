@@ -4,7 +4,7 @@ import Movie from '../../components/movie'
 import style from '../(home)/home.module.css'
 
 interface IMovieProps {
-	id: string
+	id: number
 	title: string
 	poster_path: string
 	overview: string
@@ -32,7 +32,7 @@ export default async function Page() {
 				return (
 					<Movie
 						key={movie.id}
-						id={movie.id}
+						id={movie.id.toString()}
 						title={movie.title}
 						poster_path={movie.poster_path}
 					/>
