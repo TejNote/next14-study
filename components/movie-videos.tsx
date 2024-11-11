@@ -1,5 +1,7 @@
+import style from '../components/movie-videos.module.css'
+
 async function getVideos(id: String) {
-	await new Promise(resolve => setTimeout(resolve, 3000))
+	// await new Promise(resolve => setTimeout(resolve, 3000))
 	console.log(`Fetching Videos start : ${Date.now()}`)
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_URL}/${id}/videos`,
@@ -11,5 +13,20 @@ async function getVideos(id: String) {
 
 export default async function MovieVideos({ id }: { id: string }) {
 	const videos = await getVideos(id)
-	return <h6>${JSON.stringify(videos)}</h6>
+	return (
+		<div className={style.container}>
+			{videos.map(video => {
+				return (
+					<iframe
+						key={video.key}
+						src={`https://youtube.com/embed/${video.key}`}
+						allow='accelerometer; autoplay; clipboard-write; encrypted-media; 
+						dgyroscope; picture-in-picture'
+						allowFullScreen={true}
+						title={video.name}
+					/>
+				)
+			})}
+		</div>
+	)
 }
