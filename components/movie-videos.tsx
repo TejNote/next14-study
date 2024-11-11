@@ -1,11 +1,10 @@
+import { API_URL } from '../app/constants'
 import style from '../components/movie-videos.module.css'
 
 async function getVideos(id: String) {
 	// await new Promise(resolve => setTimeout(resolve, 3000))
 	console.log(`Fetching Videos start : ${Date.now()}`)
-	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}/${id}/videos`,
-	)
+	const response = await fetch(`${API_URL}/${id}/videos`)
 	const json = response.json()
 	console.log(`Fetching Videos end: ${Date.now()}`)
 	return json
